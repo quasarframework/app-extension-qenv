@@ -1,6 +1,6 @@
 {
   "name": "@quasar/quasar-app-extension-qenv",
-  "version": "1.0.0-alpha.1",
+  "version": "1.0.0-alpha.3",
   "description": "Load targeted variables into your quasar project",
   "author": "Hawkeye64 <jeff@quasar-framework.org>",
   "main": "src/index.js",
@@ -31,12 +31,13 @@
     "variables"
   ],
   "dependencies": {
+    "fs-extra": "^7.0.1"
+  },
+  "devDependencies": {
     "@vue/eslint-config-standard": "^4.0.0",
     "babel-eslint": "^10.0.1",
     "eslint": "^5.15.2",
     "eslint-loader": "^2.1.2",
-    "eslint-plugin-vue": "^5.2.2",
-    "fs": "^0.0.2",
-    "fs-extra": "^7.0.1"
+    "eslint-plugin-vue": "^5.2.2"
   }
 }
