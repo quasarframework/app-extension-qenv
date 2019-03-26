@@ -36,6 +36,7 @@
     "eslint": "^5.15.2",
     "eslint-loader": "^2.1.2",
     "eslint-plugin-vue": "^5.2.2",
-    "fs": "^0.0.2"
+    "fs": "^0.0.2",
+    "fs-extra": "^7.0.1"
   }
 }

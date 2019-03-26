@@ -3,7 +3,7 @@
  *
  * API: https://github.com/quasarframework/quasar/blob/master/app/lib/app-extension/InstallAPI.js
  */
-const fs = require('fs')
+const fs = require('fs-extra')
 
 module.exports = function (api) {
   api.render('./templates', {})
