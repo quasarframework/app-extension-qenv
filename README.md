@@ -14,7 +14,13 @@ This project is an official Quasar v1 CLI App Extension.
 
 This work is currently in `beta` and there are expected changes while things get worked out. Your help with testing is greatly appreciated.
 
-# Installation
+# Test Project
+In **demo** folder of **app-extension-qenv**.
+
+# Demo
+Can be found [here](https://quasarframework.github.io/app-extension-qenv/demo/dist/spa/#/).
+
+# Install
 To add this App Extension to your Quasar application, run the following (in your Quasar app folder):
 
 ```bash
