@@ -50,11 +50,6 @@ const extendConfig = function (api, conf) {
     }
   })
 
-  // make sure there is a build.env object
-  if (!conf.build.env) {
-    conf.build.env = {}
-  }
-
   // for brevity
   let target = conf.build.env
 
@@ -73,7 +68,9 @@ const extendConfig = function (api, conf) {
   }
 }
 
-module.exports = function (api, ctx) {
+module.exports = function (api) {
+  api.compatibleWith('@quasar/app', '^1.0.0-beta.18')
+
   api.extendQuasarConf((conf) => {
     extendConfig(api, conf)
   })
