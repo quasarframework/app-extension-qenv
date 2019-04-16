@@ -8,16 +8,11 @@
 const fs = require('fs')
 
 const extendConfig = function (api, conf) {
-  // see if QENV is set
-  if (!process.env.QENV) {
-    console.error(`! App Extension (qenv): missing QENV environment variable; skipping`)    
-    return
-  }
-
   const qEnvName = process.env.QENV
 
-  if (qEnvName === void 0 || qEnvName === '') {
-    console.error(`! App Extension (qenv): missing QENV environment variable; skipping`)    
+  // see if QENV is set
+  if (!qEnvName) {
+    console.error(`! App Extension (qenv): missing QENV environment variable; skipping`)
     return
   }
 
@@ -54,11 +49,6 @@ const extendConfig = function (api, conf) {
       console.error(`! App Extension (qenv): Missing '${name}' from ${envName}; skipping`)
     }
   })
-  
-  // make sure there is a build.env object
-  if (!conf.build.env) {
-    conf.build.env = {}
-  }
 
   // for brevity
   let target = conf.build.env
@@ -78,7 +68,9 @@ const extendConfig = function (api, conf) {
   }
 }
 
-module.exports = function (api, ctx) {
+module.exports = function (api) {
+  api.compatibleWith('@quasar/app', '^1.0.0-beta.18')
+
   api.extendQuasarConf((conf) => {
     extendConfig(api, conf)
   })

@@ -6,7 +6,9 @@
 const fs = require('fs-extra')
 
 module.exports = function (api) {
-  api.render('./templates', {})
+  api.compatibleWith('@quasar/app', '^1.0.0-beta.18')
+
+  api.render('./templates')
 
   const envName = '.quasar.env.json'
 

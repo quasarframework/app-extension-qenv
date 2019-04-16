@@ -47,7 +47,7 @@ module.exports = function () {
       type: 'confirm',
       name: 'add_qenv_to_gitignore',
       message: "For security, would you like your .quasar.env.json file automatically added to .gitignore?",
-      default: "Y"
+      default: true
     }
   ]
 }
