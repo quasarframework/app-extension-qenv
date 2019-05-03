@@ -98,6 +98,25 @@ You will need to modify your `package.json` in the scripts area. Let's take a lo
 
 Basically, you need to set the QENV environment variable for Node. You specifiy the key that you want for the propgated data.
 
+# QEnv with Windows
+Many thanks to [NicksonYap](https://github.com/NicksonYap) for the following information:
+
+QEnv will work on Windows by additionally installing [cross-env](https://www.npmjs.com/package/cross-env).
+
+```js
+npm install --save-dev cross-env
+
+or
+
+yarn --dev cross-env
+```
+
+Then, in package.json:
+
+```json
+"dev": "cross-env QENV=development quasar dev"
+```
+
 # Chaining environments
 Look at the `combined` script. Absolutely, you can chain two or more together. When doing this, if there is any conflicting variables, the last one in wins.
 

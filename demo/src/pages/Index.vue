@@ -1,7 +1,7 @@
 <template>
   <q-page class="flex flex-center">
     <div class="col-lg-3 col-sm-6 col-sm-10 col-xs-12">
-      <div>Open the browser Dev Tools, then find "QEnv Test" and expland it</div>
+      <div>Open the browser Dev Tools, then find "QEnv Test" and expand it</div>
       <div>You should find something similar to (depending on which QEnv was run):</div>
       <div>
         <pre>
