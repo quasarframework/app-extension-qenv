@@ -1,6 +1,6 @@
 {
   "name": "@quasar/quasar-app-extension-qenv",
-  "version": "1.0.0-alpha.4",
+  "version": "1.0.0-beta.1",
   "description": "Load targeted variables into your quasar project",
   "author": "Hawkeye64 <jeff@quasar-framework.org>",
   "main": "src/index.js",
