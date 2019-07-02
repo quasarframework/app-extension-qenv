@@ -33,8 +33,7 @@ const extendConfig = function (api, conf) {
   let envData
   try {
     envData = require(envPath)
-  }
-  catch(e) {
+  } catch (e) {
     console.error(`! App Extension (qenv): Error '${JSON.stringify(e)}'`)
     return
   }
