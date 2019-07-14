@@ -68,7 +68,8 @@ const extendConfig = function (api, conf) {
 }
 
 module.exports = function (api) {
-  api.compatibleWith('@quasar/app', '^1.0.0-beta.18')
+  // quasar compatibility check
+  api.compatibleWith('@quasar/app', '^1.0.0')
 
   api.extendQuasarConf((conf) => {
     extendConfig(api, conf)
