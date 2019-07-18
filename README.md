@@ -42,7 +42,7 @@ Selecting `[enter]` on your keyboard will give you the defaults. There will be n
 Also, it is highly recommended to add your `.quasar.env.json` file to your `.gitignore`. It really does not belong in your repository as it may contain sensitive data.
 
 # Accessing the data
-Any specified data in `.quasar.env.json` will be placed in `process.env` at the browser level. 
+Any specified data in `.quasar.env.json` will be placed in `process.env` at the browser level.
 
 If you specified a common root object, say `MyData`, then the data will be placed at `process.env.MyData`.
 
@@ -115,6 +115,13 @@ Then, in package.json:
 
 ```json
 "dev": "cross-env QENV=development quasar dev"
+```
+
+# Qenv with Docker
+QEnv will work with Docker by using the following syntax to inject your QENV variable into Node:
+
+```bash
+$ sudo docker run [...] -e QENV="development"
 ```
 
 # Chaining environments
