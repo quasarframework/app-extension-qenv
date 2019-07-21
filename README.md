@@ -18,7 +18,7 @@ This work is currently in `beta` and there are expected changes while things get
 In **demo** folder of **app-extension-qenv**.
 
 # Demo
-Can be found [here](https://quasarframework.github.io/app-extension-qenv/demo/dist/spa/#/).
+Can be found [here](https://quasarframework.github.io/app-extension-qenv/).
 
 # Install
 To add this App Extension to your Quasar application, run the following (in your Quasar app folder):
