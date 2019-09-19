@@ -124,7 +124,7 @@ QEnv will work with Docker by using the following syntax to inject your QENV var
 $ sudo docker run [...] -e QENV="development"
 ```
 
-# Chaining teh Environments
+# Chaining the Environments
 Look at the `combined` script. Absolutely, you can chain two or more together. When doing this, if there is any conflicting variables, the last one in wins.
 
 In other words:
