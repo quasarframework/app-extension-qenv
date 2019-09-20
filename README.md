@@ -41,7 +41,7 @@ Selecting `[enter]` on your keyboard will give you the defaults. There will be n
 
 Also, it is highly recommended to add your `.quasar.env.json` file to your `.gitignore`. It really does not belong in your repository as it may contain sensitive data.
 
-# Accessing the data
+# Accessing the Data
 Any specified data in `.quasar.env.json` will be placed in `process.env` at the browser level.
 
 If you specified a common root object, say `MyData`, then the data will be placed at `process.env.MyData`.
@@ -82,7 +82,7 @@ This is the default that is installed and you will need to modify it to fit your
 
 You can add as many environments as needed (top-level keys). You are not restricted to the `development`, `production` and `test` that come by default. And, you can add as many variables under those environment types as you like.
 
-# Specifying environment
+# Specifying the Environment
 So, how is this accessed?
 
 You will need to modify your `package.json` in the scripts area. Let's take a look at an example:
@@ -96,7 +96,7 @@ You will need to modify your `package.json` in the scripts area. Let's take a lo
   },
 ```
 
-Basically, you need to set the QENV environment variable for Node. You specifiy the key that you want for the propgated data.
+Basically, you need to set the QENV environment variable for Node. You specify the key that you want for the propagated data.
 
 # QEnv with Windows
 Many thanks to [NicksonYap](https://github.com/NicksonYap) for the following information:
@@ -108,7 +108,7 @@ npm install --save-dev cross-env
 
 or
 
-yarn --dev cross-env
+yarn add --dev cross-env
 ```
 
 Then, in package.json:
@@ -124,7 +124,7 @@ QEnv will work with Docker by using the following syntax to inject your QENV var
 $ sudo docker run [...] -e QENV="development"
 ```
 
-# Chaining environments
+# Chaining the Environments
 Look at the `combined` script. Absolutely, you can chain two or more together. When doing this, if there is any conflicting variables, the last one in wins.
 
 In other words:
