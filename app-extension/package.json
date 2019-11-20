@@ -1,8 +1,9 @@
 {
   "name": "@quasar/quasar-app-extension-qenv",
-  "version": "1.0.0-beta.2",
-  "description": "Load targeted variables into your quasar project",
-  "author": "Hawkeye64 <jeff@quasar-framework.org>",
+  "version": "1.0.0",
+  "description": "Load targeted variables into your Quasar project",
+  "author": "Jeff Galbraith <jeff@quasar.dev>",
+  "license": "MIT",
   "main": "src/index.js",
   "scripts": {
     "lint": "eslint --ext .js,.vue src",
@@ -10,21 +11,29 @@
     "build-demo": "cd ./demo && yarn build && cd .. && cp ./_redirects ./demo/dist/spa && rm -r -f ./docs && cp -r ./demo/dist/spa/. ./docs",
     "test": "echo \"No test specified\" && exit 0"
   },
-  "engines": {
-    "node": ">= 8.9.0",
-    "npm": ">= 5.6.0",
-    "yarn": ">= 1.6.0"
+  "funding": {
+    "type": "github",
+    "url": "https://github.com/sponsors/hawkeye64"
   },
   "publishConfig": {
     "access": "public"
   },
-  "bugs": "https://github.com/quasarframework/app-extension-qenv/issues",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/quasarframework/app-extension-qenv.git"
   },
+  "bugs": "https://github.com/quasarframework/app-extension-qenv/issues",
   "homepage": "https://github.com/quasarframework/app-extension-qenv",
-  "license": "MIT",
+  "dependencies": {
+    "fs-extra": "^8.1.0"
+  },
+  "devDependencies": {
+    "@vue/eslint-config-standard": "^4.0.0",
+    "babel-eslint": "^10.0.3",
+    "eslint": "^6.6.0",
+    "eslint-loader": "^3.0.2",
+    "eslint-plugin-vue": "^6.0.1"
+  },
   "keywords": [
     "quasar",
     "app",
@@ -33,14 +42,9 @@
     "evironment",
     "variables"
   ],
-  "dependencies": {
-    "fs-extra": "^8.1.0"
-  },
-  "devDependencies": {
-    "@vue/eslint-config-standard": "^4.0.0",
-    "babel-eslint": "^10.0.3",
-    "eslint": "^6.3.0",
-    "eslint-loader": "^3.0.0",
-    "eslint-plugin-vue": "^5.2.3"
+  "engines": {
+    "node": ">= 8.9.0",
+    "npm": ">= 5.6.0",
+    "yarn": ">= 1.6.0"
   }
 }
