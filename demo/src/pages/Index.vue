@@ -23,6 +23,7 @@ export default {
   name: 'PageIndex',
 
   mounted () {
+    /* eslint-disable no-console */
     console.log('QEnv Test', process.env)
   }
 }

@@ -2,9 +2,9 @@
  * Quasar App Extension index/runner script
  * (runs on each dev/build)
  *
+ * Docs: https://quasar.dev/app-extensions/development-guide/index-api
  * API: https://github.com/quasarframework/quasar/blob/master/app/lib/app-extension/IndexAPI.js
  */
-
 const fs = require('fs')
 
 const extendConfig = function (api, conf) {
@@ -68,9 +68,14 @@ const extendConfig = function (api, conf) {
 }
 
 module.exports = function (api) {
-  // quasar compatibility check
-  api.compatibleWith('@quasar/app', '^1.0.0')
+  // Quasar compatibility check; you may need
+  // hard dependencies, as in a minimum version of the "quasar"
+  // package or a minimum version of "@quasar/app" CLI
+  api.compatibleWith('quasar', '^1.1.1')
+  api.compatibleWith('@quasar/app', '^1.1.0')
 
+
+  // We extend /quasar.conf.js
   api.extendQuasarConf((conf) => {
     extendConfig(api, conf)
   })
