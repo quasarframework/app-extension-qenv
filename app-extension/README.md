@@ -13,7 +13,7 @@ Can be found [here](https://quasarframework.github.io/app-extension-qenv/).
 
 # Install
 ```bash
-quasar ext add qenv
+quasar ext add @quasar/qenv
 ```
 Quasar CLI will retrieve it from NPM and install the extension.
 
