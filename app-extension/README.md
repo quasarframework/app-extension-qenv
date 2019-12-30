@@ -95,7 +95,7 @@ npm install --save-dev cross-env
 
 or
 
-yarn --dev cross-env
+yarn add --dev cross-env
 ```
 
 Then, in package.json:
