@@ -102,7 +102,7 @@ Then, in package.json:
 "dev": "cross-env QENV=development quasar dev"
 ```
 
-# Qenv with Docker
+# QEnv with Docker
 QEnv will work with Docker by using the following syntax to inject your QENV variable into Node:
 
 ```bash
