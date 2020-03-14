@@ -1,8 +1,6 @@
 # Quasar App Extension qenv
 
-This project is an official Quasar CLI App Extension for [qenv](https://www.npmjs.com/package/qenv).
-
-quasar-app-extension-qenv is a `CLI App Extension` for [Quasar Framework](https://quasar.dev/).
+quasar-app-extension-qenv is a `CLI App Extension` for [Quasar Framework](https://quasar.dev/). It is a stand-alone environment-to-browser parser and aggregator.
 
 <img src="https://img.shields.io/npm/v/@quasar/quasar-app-extension-qenv.svg?label=@quasar/quasar-app-extension-qenv">
 <img src="https://img.shields.io/github/repo-size/quasarframework/app-extension-qenv.svg">
@@ -13,7 +11,7 @@ Can be found [here](https://quasarframework.github.io/app-extension-qenv/).
 
 # Install
 ```bash
-quasar ext add qenv
+quasar ext add @quasar/qenv
 ```
 Quasar CLI will retrieve it from NPM and install the extension.
 
@@ -95,7 +93,7 @@ npm install --save-dev cross-env
 
 or
 
-yarn --dev cross-env
+yarn add --dev cross-env
 ```
 
 Then, in package.json:
@@ -104,7 +102,7 @@ Then, in package.json:
 "dev": "cross-env QENV=development quasar dev"
 ```
 
-# Qenv with Docker
+# QEnv with Docker
 QEnv will work with Docker by using the following syntax to inject your QENV variable into Node:
 
 ```bash
@@ -140,7 +138,7 @@ yarn combined
 
 # Uninstall
 ```bash
-quasar ext remove qenv
+quasar ext remove @quasar/qenv
 ```
 
 # Donate
