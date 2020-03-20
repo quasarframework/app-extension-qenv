@@ -33,7 +33,7 @@
     "variables"
   ],
   "dependencies": {
-    "fs-extra": "^8.1.0"
+    "fs-extra": "^9.0.0"
   },
   "devDependencies": {
     "@vue/eslint-config-standard": "^5.1.2",
