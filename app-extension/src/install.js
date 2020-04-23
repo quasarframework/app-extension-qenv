@@ -16,6 +16,8 @@ module.exports = function (api) {
   // does user want .quasar.env.json added to .gitignore?
   if (api.prompts.add_qenv_to_gitignore === true) {
     const gitignorePath = api.resolve.app('.gitignore')
+    // ensure file exists
+    fs.ensureFileSync(gitignorePath)
     // read .gitignore
     let buffer = fs.readFileSync(gitignorePath, 'utf8')
     // convert to array
