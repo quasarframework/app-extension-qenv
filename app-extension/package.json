@@ -1,6 +1,6 @@
 {
   "name": "@quasar/quasar-app-extension-qenv",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Load targeted variables into your quasar project",
   "author": "Jeff Galbraith <jeff@quasar.dev>",
   "main": "src/index.js",
