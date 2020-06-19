@@ -33,14 +33,15 @@
     "variables"
   ],
   "dependencies": {
-    "fs-extra": "^9.0.0"
+    "fs-extra": "^9.0.1",
+    "semver": "^7.3.2"
   },
   "devDependencies": {
     "@vue/eslint-config-standard": "^5.1.2",
     "babel-eslint": "^10.1.0",
-    "eslint": "^6.8.0",
-    "eslint-loader": "^4.0.0",
-    "eslint-plugin-import": "^2.20.2",
+    "eslint": "^7.2.0",
+    "eslint-loader": "^4.0.2",
+    "eslint-plugin-import": "^2.21.2",
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-vue": "^6.2.2"
