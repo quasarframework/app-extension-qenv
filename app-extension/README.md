@@ -2,9 +2,8 @@
 
 quasar-app-extension-qenv is a `CLI App Extension` for [Quasar Framework](https://quasar.dev/). It is a stand-alone environment-to-browser parser and aggregator.
 
-<img src="https://img.shields.io/npm/v/@quasar/quasar-app-extension-qenv.svg?label=@quasar/quasar-app-extension-qenv">
-<img src="https://img.shields.io/github/repo-size/quasarframework/app-extension-qenv.svg">
-<img src="https://img.shields.io/npm/dt/@quasar/quasar-app-extension-qenv.svg">
+![@quasar/quasar-app-extension-qenv](https://img.shields.io/npm/v/@quasar/quasar-app-extension-qenv.svg?label=@quasar/quasar-app-extension-qenv)
+[![npm](https://img.shields.io/npm/dt/@quasar/quasar-app-extension-qenv.svg)](https://www.npmjs.com/package/@quasar/quasar-app-extension-qenv)
 
 # Demo
 Can be found [here](https://quasarframework.github.io/app-extension-qenv/).
