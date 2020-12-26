@@ -83,6 +83,20 @@ You will need to modify your `package.json` in the scripts area. Let's take a lo
 Basically, you need to set the QENV environment variable for Node. You specifiy the key that you want for the propgated data.
 
 # QEnv with Windows
+There are several ways to set the QENV enviironment variable on Windows.
+
+**CMD**
+```json
+"dev": "set QENV='development' & quasar dev"
+```
+
+**PowerShell (VS Code default)**
+```json
+"dev": "$env:QENV='development'; quasar dev"
+```
+
+...and for a solution that works for either:
+
 Many thanks to [NicksonYap](https://github.com/NicksonYap) for the following information:
 
 QEnv will work on Windows by additionally installing [cross-env](https://www.npmjs.com/package/cross-env).
@@ -109,7 +123,7 @@ $ sudo docker run [...] -e QENV="development"
 ```
 
 # Chaining environments
-Look at the `combined` script. Absolutely, you can chain two or more together. When doing this, if there is any conflicting variables, the last one in wins.
+Look at the `combined` script. Absolutely, you can chain two or more configurations together. When doing this, if there is any conflicting variables, the last one in wins.
 
 In other words:
 
