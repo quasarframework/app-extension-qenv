@@ -8,6 +8,50 @@
 const fs = require('fs')
 const semver = require('semver')
 
+// code used from // https://github.com/motdotla/dotenv-expand
+const expandVariables = function (config) {
+  // if ignoring process.env, use a blank object
+  const environment = config.ignoreProcessEnv ? {} : process.env
+
+  const interpolate = function (envValue) {
+    const matches = String(envValue).match(/(.?\${?(?:[a-zA-Z0-9_]+)?}?)/g) || []
+
+    return matches.reduce(function (newEnv, match) {
+      const parts = /(.?)\${?([a-zA-Z0-9_]+)?}?/g.exec(match)
+      const prefix = parts[1]
+
+      let value, replacePart
+
+      if (prefix === '\\') {
+        replacePart = parts[0]
+        value = replacePart.replace('\\$', '$')
+      } else {
+        const key = parts[2]
+        replacePart = parts[0].substring(prefix.length)
+        // process.env value 'wins' over .env file's value
+        value = environment.hasOwnProperty(key) ? environment[key] : (config.parsed[key] || '')
+
+        // Resolve recursive interpolations
+        value = interpolate(value)
+      }
+
+      return newEnv.replace(replacePart, value)
+    }, envValue)
+  }
+
+  for (const configKey in config.parsed) {
+    const value = environment.hasOwnProperty(configKey) ? environment[configKey] : config.parsed[configKey]
+
+    config.parsed[configKey] = interpolate(value)
+  }
+
+  for (const processKey in config.parsed) {
+    environment[processKey] = config.parsed[processKey]
+  }
+
+  return config
+}
+
 const extendConfig = function (api, conf) {
   const qEnvName = process.env.QENV
 
@@ -52,6 +96,11 @@ const extendConfig = function (api, conf) {
       console.error(`! App Extension (qenv): Missing '${name}' from ${envName}; skipping`)
     }
   })
+
+  const results = {}
+  results.parsed = data
+
+  data = expandVariables(results).parsed
 
   // for brevity
   let target = conf.build.env
