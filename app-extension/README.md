@@ -7,6 +7,8 @@ quasar-app-extension-qenv is a `CLI App Extension` for [Quasar Framework](https:
 
 **Now compatible with Quasar v2 beta**
 
+> v1.1.0 now supports expanding environmental variables put inside your `.quasar.env.json` file!
+
 # Demo
 Can be found [here](https://quasarframework.github.io/app-extension-qenv/).
 
@@ -27,24 +29,11 @@ Quasar CLI will retrieve it from NPM and install the extension.
   If you say "yes" to this question, then your .quasar.env.json file will automatically be inserted into the .gitignore.
   For security purposes, because you may have sensitive data in your `.quasar.env.json` file, you should not keep it in a repository.
 
-# Accessing the data
-Any data in a `.quasar.env.json` will be placed in `process.env` at the browser level.
+# Accessing the Data
+Any data in a `.quasar.env.json` will be placed in `process.env` at the browser level. DO NOT `console.log(process.env)` as you will not see anything. For security purposes Quasar abstracts this away from prying eyes. If your env variable is `PORT`, then you can `console.log(process.env.PORT)` to see the results.
 
 # Tips
 If you specified a common root object, say `MyData`, then the data will be placed at `process.env.MyData`.
-
-Be aware, if you have something like this in your `.quasar.env.json`:
-
-```json
-"APP_PORT": "4000"
-```
-
-Then you will need to use the `parseInt()` function as it will be propogated to the browser code as a string. You should really do it this way:
-
-```json
-"APP_PORT": 4000
-```
-Now, the variable will be accessible in the browser as a number.
 
 # Format
 The format of the `.quasar.env.json` is as follows:
@@ -52,21 +41,58 @@ The format of the `.quasar.env.json` is as follows:
 {
   "development": {
     "ENV_TYPE": "Running Development",
-    "ENV_DEV": "Development"
+    "ENV_DEV": "Development",
+    "SHELL: "${SHELL}"
   },
   "production": {
     "ENV_TYPE": "Running Production",
-    "ENV_PROD": "Production"
+    "ENV_PROD": "Production",
+    "SHELL: "${SHELL}"
   },
   "test": {
     "ENV_TYPE": "Running Test",
-    "ENV_Test": "Test"
+    "ENV_Test": "Test",
+    "SHELL: "${SHELL}"
   }
 }
 ```
 This is the default that is installed and you will need to modify it to fit your needs.
 
 You can add as many environments as needed (top-level keys). You are not restricted to the `development`, `production` and `test` that come by default. And, you can add as many variables under those environment types as you like.
+
+# Using Environment Variables
+Environment variable are accessed like this: `$MyVar` or `${MyVar}`. If it exists, then it will be expanded.
+
+Let's use the `test` object from above to expand it out for something that would be used in production:
+
+```bash
+  "test": {
+    NODE_ENV: "test",
+    BASIC: "basic",
+    BASIC_EXPAND: "$BASIC",
+    MACHINE: "machine_env",
+    MACHINE_EXPAND: "$MACHINE",
+    UNDEFINED_EXPAND: "$UNDEFINED_ENV_KEY",
+    ESCAPED_EXPAND: "\$ESCAPED",
+    MONGOLAB_DATABASE: "heroku_db",
+    MONGOLAB_USER: "username",
+    MONGOLAB_PASSWORD: "password",
+    MONGOLAB_DOMAIN: "abcd1234.mongolab.com",
+    MONGOLAB_PORT: 12345,
+
+    MONGOLAB_URI: "mongodb://${MONGOLAB_USER}:${MONGOLAB_PASSWORD}@${MONGOLAB_DOMAIN}:${MONGOLAB_PORT}/${MONGOLAB_DATABASE}",
+
+    MONGOLAB_USER_RECURSIVELY: "${MONGOLAB_USER}:${MONGOLAB_PASSWORD}",
+
+    MONGOLAB_URI_RECURSIVELY: "mongodb://${MONGOLAB_USER_RECURSIVELY}@${MONGOLAB_DOMAIN}:${MONGOLAB_PORT}/${MONGOLAB_DATABASE}",
+
+    WITHOUT_CURLY_BRACES_URI: "mongodb://$MONGOLAB_USER:$MONGOLAB_PASSWORD@$MONGOLAB_DOMAIN:$MONGOLAB_PORT/$MONGOLAB_DATABASE",
+
+    WITHOUT_CURLY_BRACES_USER_RECURSIVELY: "$MONGOLAB_USER:$MONGOLAB_PASSWORD",
+
+    WITHOUT_CURLY_BRACES_URI_RECURSIVELY: "mongodb://$MONGOLAB_USER_RECURSIVELY@$MONGOLAB_DOMAIN:$MONGOLAB_PORT/$MONGOLAB_DATABASE"
+  }
+```
 
 # Specifying environment
 So, how is this accessed?
