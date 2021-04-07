@@ -1,3 +1,5 @@
+April 7, 2021: The NPM package for this package has been deprecated and the Github repo archived.
+
 # Quasar App Extension qenv
 
 quasar-app-extension-qenv is a `CLI App Extension` for [Quasar Framework](https://quasar.dev/). It is a stand-alone environment-to-browser parser and aggregator.
